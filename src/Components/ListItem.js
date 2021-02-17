@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
-const ListItem = ({ id, year, place, onHover }) => {
+const ListItem = ({ data, onHover }) => {
   return (
     <StyledItem
-      onMouseEnter={() => onHover(id)}
+      onMouseEnter={() => onHover(data)}
       onMouseLeave={() => onHover(null)}
     >
-      <span>{year}</span>
-      <span>{place}</span>
+      <span>{data.flag}</span>
+      <span>{data.name}</span>
     </StyledItem>
   );
 };
@@ -26,6 +26,11 @@ const StyledItem = styled.li`
   span:first-child {
     font-weight: bold;
     text-align: center;
+  }
+
+  :hover {
+    background: #ccc;
+    cursor: pointer;
   }
 `;
 

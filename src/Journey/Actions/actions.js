@@ -1,5 +1,8 @@
-export const initJourney = async () => {
-  const options = [];
+import { getCountries } from "./requests";
 
-  return options;
+export const initJourney = async () => {
+  const countries = await getCountries();
+  const selected = ["ESP", "FRA", "PRT"];
+
+  return { countries: countries, selected: selected };
 };

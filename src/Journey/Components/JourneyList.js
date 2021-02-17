@@ -1,39 +1,25 @@
 import styled from "styled-components";
 import ListItem from "../../Components/ListItem";
 
-const JourneyList = ({ onItemHover }) => {
-  const items = [
-    { id: "ESP", place: "Spain", year: 2020 },
-    { id: "FRA", place: "France", year: 2019 },
-    { id: "PRT", place: "Portugal", year: 2018 },
-  ];
-
+const JourneyList = ({ data, onItemHover }) => {
   return (
     <StyledListWrapper>
-      <StyledListHeader>Countries list</StyledListHeader>
-      <StyledList>
-        {items.map((item, index) => (
-          <ListItem
-            key={index}
-            id={item.id}
-            place={item.place}
-            year={item.year}
-            onHover={onItemHover}
-          />
-        ))}
-      </StyledList>
+      {data.map((item) => (
+        <ListItem key={item.iso} data={item} onHover={onItemHover} />
+      ))}
     </StyledListWrapper>
   );
 };
 
-const StyledListWrapper = styled.div`
+const StyledListWrapper = styled.ul`
   position: absolute;
   left: 20px;
   top: 20px;
   padding: 8px;
+  box-sizing: border-box;
   background: #fff;
-  max-height: 100px;
-  min-width: 150px;
+  max-height: calc(100vh - 40px);
+  width: 250px;
   overflow-y: auto;
 
   ::-webkit-scrollbar {
@@ -54,17 +40,6 @@ const StyledListWrapper = styled.div`
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
-`;
-const StyledListHeader = styled.div`
-  width: 100%;
-  font-weight: bold;
-  text-align: center;
-`;
-
-const StyledList = styled.ul`
-  width: 100%;
-  background: #eee;
-  margin-top: 10px;
 `;
 
 export default JourneyList;

@@ -7,7 +7,6 @@ export const DEFAULT_VIEW_STATE = {
   latitude: 40.454572474788996,
   longitude: -3.7027573585510254,
   zoom: 0,
-  X: 220,
 };
 
 export const THEME = {
@@ -24,6 +23,7 @@ export const THEME = {
     background: [238, 238, 238],
     selected: [255, 211, 105],
     container: "#5b5b5b",
-    hovered: [255, 255, 255],
+    hovered: [255, 239, 161],
+    hoveredBorder: [246, 245, 245],
   },
 };
