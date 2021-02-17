@@ -1,13 +1,26 @@
 import { _GlobeView as GlobeView } from "@deck.gl/core";
 import { DeckGL, GeoJsonLayer, SolidPolygonLayer } from "deck.gl";
+import { useRef, useState } from "react";
 import * as CONSTANTS from "../constants";
 
-const JourneyMap = () => {
+const JourneyMap = ({ data, theme, hovered }) => {
+  const deckRef = useRef(null);
+  const [viewState, setViewState] = useState(CONSTANTS.DEFAULT_VIEW_STATE);
+  const GLOBE_VIEW = new GlobeView();
+
+  const getColor = (d) => {
+    if (d.properties.iso_a3 === hovered) return theme.hovered;
+
+    return data.includes(d.properties.iso_a3) ? theme.selected : theme.polygon;
+  };
+
   return (
     <DeckGL
-      views={new GlobeView()}
-      initialViewState={CONSTANTS.DEFAULT_VIEW_STATE}
+      ref={deckRef}
+      views={GLOBE_VIEW}
+      viewState={viewState}
       controller={true}
+      onViewStateChange={(e) => setViewState(e.viewState)}
     >
       <SolidPolygonLayer
         data={[
@@ -26,7 +39,7 @@ const JourneyMap = () => {
         getPolygon={(d) => d}
         stroked={false}
         filled={true}
-        getFillColor={[238, 238, 238]}
+        getFillColor={theme.background}
         parameters={{ cull: true }}
       />
 
@@ -35,8 +48,12 @@ const JourneyMap = () => {
         lineWidthMinPixels={2}
         stroked={true}
         filled={true}
-        getLineColor={[34, 40, 49]}
-        getFillColor={[57, 62, 70]}
+        getLineColor={theme.border}
+        getFillColor={getColor}
+        pickable={true}
+        updateTriggers={{
+          getFillColor: getColor,
+        }}
       />
     </DeckGL>
   );

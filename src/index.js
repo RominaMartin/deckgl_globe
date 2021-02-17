@@ -1,5 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "./index.css";
+
 import JourneyContainer from "./Journey/Containers/JourneyContainer";
 
 ReactDOM.render(
