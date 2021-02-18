@@ -1,10 +1,21 @@
 import { getCountries } from "./requests";
 
-export const initJourney = async () => {
+export const initMainGlobe = async () => {
   const countries = await getCountries();
-  const selected = ["ESP", "FRA", "PRT"];
+  const defaultSelected = [
+    "ESP",
+    "FRA",
+    "VEN",
+    "CAN",
+    "ITA",
+    "USA",
+    "BEL",
+    "NLD",
+    "COL",
+    "DEU",
+  ];
 
-  return { countries: countries, selected: selected };
+  return { countries: countries, selected: defaultSelected };
 };
 
 export const handleSelection = ({ current, selected }) => {

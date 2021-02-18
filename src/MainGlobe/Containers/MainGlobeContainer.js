@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useKeyPress } from "../../hooks/useKeyPress";
-import { initJourney, handleSelection } from "../Actions/actions";
-import JourneyList from "../Components/JourneyList";
-import JourneyMap from "../Components/JourneyMap";
+import { initMainGlobe, handleSelection } from "../Actions/actions";
+import MainGlobeList from "../Components/MainGlobeList";
+import MainGlobeMap from "../Components/MainGlobeMap";
 import { THEME } from "../constants";
 
-const JourneyContainer = () => {
+const MainGlobeContainer = () => {
   const [theme] = useState("dark");
   const letterTyped = useKeyPress();
   const [countries, setCountries] = useState([]);
@@ -16,7 +16,7 @@ const JourneyContainer = () => {
 
   useEffect(() => {
     (async () => {
-      const basicData = await initJourney();
+      const basicData = await initMainGlobe();
       setCountries(basicData.countries);
       setSelectedItems(basicData.selected);
     })();
@@ -37,14 +37,14 @@ const JourneyContainer = () => {
   };
 
   return (
-    <StyledJourneyContainer background={THEME[theme].container}>
-      <JourneyMap
+    <StyledMainGlobeContainer background={THEME[theme].container}>
+      <MainGlobeMap
         data={selectedItems}
         theme={THEME[theme]}
         hovered={hoveredItem}
         onItemClick={onItemClick}
       />
-      <JourneyList
+      <MainGlobeList
         data={countries}
         onItemHover={setHoveredItem}
         onItemClick={onItemClick}
@@ -52,14 +52,14 @@ const JourneyContainer = () => {
         search={searchTerm}
         handleClearSelection={onClear}
       />
-    </StyledJourneyContainer>
+    </StyledMainGlobeContainer>
   );
 };
 
-const StyledJourneyContainer = styled.div`
+const StyledMainGlobeContainer = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${({ background }) => background};
 `;
 
-export default JourneyContainer;
+export default MainGlobeContainer;

@@ -3,7 +3,7 @@ import { DeckGL, GeoJsonLayer, SolidPolygonLayer } from "deck.gl";
 import { useEffect, useRef, useState } from "react";
 import * as CONSTANTS from "../constants";
 
-const JourneyMap = ({ data, theme, hovered, onItemClick = () => {} }) => {
+const MainGlobeMap = ({ data, theme, hovered, onItemClick = () => {} }) => {
   const deckRef = useRef(null);
   const [viewState, setViewState] = useState(CONSTANTS.DEFAULT_VIEW_STATE);
   const GLOBE_VIEW = new GlobeView({ x: 120 });
@@ -78,4 +78,4 @@ const JourneyMap = ({ data, theme, hovered, onItemClick = () => {} }) => {
   );
 };
 
-export default JourneyMap;
+export default MainGlobeMap;

@@ -25,12 +25,5 @@ export const THEME = {
     container: "#222831",
     hovered: [255, 239, 161],
     hoveredBorder: [246, 245, 245],
-    // border: [34, 40, 49],
-    // polygon: [57, 62, 70],
-    // background: [238, 238, 238],
-    // selected: [255, 211, 105],
-    // container: "#5b5b5b",
-    // hovered: [255, 239, 161],
-    // hoveredBorder: [246, 245, 245],
   },
 };

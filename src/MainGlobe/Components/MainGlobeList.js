@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import ListItem from "../../Components/ListItem";
 
-const JourneyList = ({
+const MainGlobeList = ({
   data,
   selected,
   search,
@@ -23,7 +23,7 @@ const JourneyList = ({
     if (search === "") setSearchTerm(search);
 
     searchRef.current.focus();
-  }, [selected, search]);
+  }, [search]);
 
   useEffect(() => {
     setFilteredList();
@@ -164,4 +164,4 @@ const StyledControls = styled.div`
   }
 `;
 
-export default JourneyList;
+export default MainGlobeList;

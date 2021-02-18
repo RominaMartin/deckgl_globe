@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-
-import JourneyContainer from "./Journey/Containers/JourneyContainer";
+import MainGlobeContainer from "./MainGlobe/Containers/MainGlobeContainer";
 
 ReactDOM.render(
   <React.StrictMode>
-    <JourneyContainer />
+    <MainGlobeContainer />
   </React.StrictMode>,
   document.getElementById("root")
 );
