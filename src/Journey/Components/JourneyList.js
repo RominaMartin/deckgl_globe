@@ -29,7 +29,7 @@ const JourneyList = ({
     setFilteredList();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchTerm, selectedCheck]);
+  }, [itemList, searchTerm, selectedCheck]);
 
   const setFilteredList = () => {
     let filtered = [...data];
