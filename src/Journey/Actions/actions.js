@@ -6,3 +6,10 @@ export const initJourney = async () => {
 
   return { countries: countries, selected: selected };
 };
+
+export const handleSelection = ({ current, selected }) => {
+  if (current.includes(selected))
+    return current.filter((item) => item !== selected);
+
+  return [...current, selected];
+};

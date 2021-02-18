@@ -3,7 +3,7 @@ import { DeckGL, GeoJsonLayer, SolidPolygonLayer } from "deck.gl";
 import { useEffect, useRef, useState } from "react";
 import * as CONSTANTS from "../constants";
 
-const JourneyMap = ({ data, theme, hovered }) => {
+const JourneyMap = ({ data, theme, hovered, onItemClick = () => {} }) => {
   const deckRef = useRef(null);
   const [viewState, setViewState] = useState(CONSTANTS.DEFAULT_VIEW_STATE);
   const GLOBE_VIEW = new GlobeView({ x: 120 });
@@ -15,12 +15,15 @@ const JourneyMap = ({ data, theme, hovered }) => {
         ...hovered.coordinates,
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hovered]);
 
   const getColor = (d) => {
+    if (data.includes(d.properties.iso_a3)) return theme.selected;
+
     if (hovered && hovered.iso === d.properties.iso_a3) return theme.hovered;
 
-    return data.includes(d.properties.iso_a3) ? theme.selected : theme.polygon;
+    return theme.polygon;
   };
 
   const getBorderColor = (d) =>
@@ -69,9 +72,7 @@ const JourneyMap = ({ data, theme, hovered }) => {
           getFillColor: getColor,
           getLineColor: getBorderColor,
         }}
-        // onClick={(clicked) => {
-        //   console.log(ee);
-        // }}
+        onClick={(e) => onItemClick(e.object.properties.iso_a3)}
       />
     </DeckGL>
   );
