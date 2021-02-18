@@ -19,6 +19,8 @@ export const useKeyPress = (targetKey = null, type = "letter") => {
     return () => {
       window.removeEventListener("keydown", downHandler);
     };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return keyPressed;

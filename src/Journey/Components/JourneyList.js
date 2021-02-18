@@ -23,13 +23,13 @@ const JourneyList = ({
     if (search === "") setSearchTerm(search);
 
     searchRef.current.focus();
-  }, [search]);
+  }, [selected, search]);
 
   useEffect(() => {
     setFilteredList();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [itemList, searchTerm, selectedCheck]);
+  }, [selected, searchTerm, selectedCheck]);
 
   const setFilteredList = () => {
     let filtered = [...data];
