@@ -38,6 +38,16 @@ const MainGlobeContainer = () => {
 
   return (
     <StyledMainGlobeContainer background={THEME[theme].container}>
+      <StyledSocial>
+        <iframe
+          src="https://ghbtns.com/github-btn.html?user=rominamartin&repo=deckgl_globe&type=star&count=true"
+          frameborder="0"
+          width="100"
+          scrolling="0"
+          height="20"
+          title="GitHub"
+        ></iframe>
+      </StyledSocial>
       <MainGlobeMap
         data={selectedItems}
         theme={THEME[theme]}
@@ -60,6 +70,13 @@ const StyledMainGlobeContainer = styled.div`
   width: 100vw;
   height: 100vh;
   background-color: ${({ background }) => background};
+`;
+
+const StyledSocial = styled.div`
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 1;
 `;
 
 export default MainGlobeContainer;

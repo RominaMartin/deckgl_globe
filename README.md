@@ -1,6 +1,6 @@
-# Deckgl Globe
+# deck.gl Globe
 
-Trying Deckgl out :)
+Trying deck.gl out :)
 
 ## Interactivity between list and globe.
 

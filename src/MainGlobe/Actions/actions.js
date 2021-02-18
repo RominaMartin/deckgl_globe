@@ -13,6 +13,7 @@ export const initMainGlobe = async () => {
     "NLD",
     "COL",
     "DEU",
+    "GBR",
   ];
 
   return { countries: countries, selected: defaultSelected };
