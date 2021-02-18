@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/deckgl_globe/static/css/main.e5694d24.chunk.css",
+    "main.js": "/deckgl_globe/static/js/main.78f77af1.chunk.js",
+    "main.js.map": "/deckgl_globe/static/js/main.78f77af1.chunk.js.map",
+    "runtime-main.js": "/deckgl_globe/static/js/runtime-main.aa236f22.js",
+    "runtime-main.js.map": "/deckgl_globe/static/js/runtime-main.aa236f22.js.map",
+    "static/js/2.873fad83.chunk.js": "/deckgl_globe/static/js/2.873fad83.chunk.js",
+    "static/js/2.873fad83.chunk.js.map": "/deckgl_globe/static/js/2.873fad83.chunk.js.map",
+    "index.html": "/deckgl_globe/index.html",
+    "static/css/main.e5694d24.chunk.css.map": "/deckgl_globe/static/css/main.e5694d24.chunk.css.map",
+    "static/js/2.873fad83.chunk.js.LICENSE.txt": "/deckgl_globe/static/js/2.873fad83.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.aa236f22.js",
+    "static/js/2.873fad83.chunk.js",
+    "static/css/main.e5694d24.chunk.css",
+    "static/js/main.78f77af1.chunk.js"
+  ]
+}
