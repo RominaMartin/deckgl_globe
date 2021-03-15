@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useKeyPress } from "../../hooks/useKeyPress";
-import { initMainGlobe, handleSelection } from "../Actions/actions";
+import {
+  initMainGlobe,
+  handleSelection,
+  getAreaFromSelected,
+} from "../Actions/actions";
+import AreaWidget from "../Components/AreaWidget";
 import MainGlobeList from "../Components/MainGlobeList";
 import MainGlobeMap from "../Components/MainGlobeMap";
 import { THEME } from "../constants";
@@ -13,6 +18,7 @@ const MainGlobeContainer = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [selectedItems, setSelectedItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState(letterTyped);
+  const [totalArea, setTotalArea] = useState(null);
 
   useEffect(() => {
     (async () => {
@@ -25,6 +31,12 @@ const MainGlobeContainer = () => {
   useEffect(() => {
     setSearchTerm(letterTyped);
   }, [letterTyped]);
+
+  useEffect(() => {
+    setTotalArea(
+      getAreaFromSelected({ data: countries, selected: selectedItems })
+    );
+  }, [countries, selectedItems]);
 
   const onItemClick = (selected) => {
     const selectedList = handleSelection({ current: selectedItems, selected });
@@ -41,7 +53,7 @@ const MainGlobeContainer = () => {
       <StyledSocial>
         <iframe
           src="https://ghbtns.com/github-btn.html?user=rominamartin&repo=deckgl_globe&type=star&count=true"
-          frameborder="0"
+          frameBorder="0"
           width="100"
           scrolling="0"
           height="20"
@@ -62,6 +74,7 @@ const MainGlobeContainer = () => {
         search={searchTerm}
         handleClearSelection={onClear}
       />
+      <AreaWidget area={totalArea} />
     </StyledMainGlobeContainer>
   );
 };

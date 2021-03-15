@@ -14,6 +14,7 @@ export const initMainGlobe = async () => {
     "COL",
     "DEU",
     "GBR",
+    "DNK",
   ];
 
   return { countries: countries, selected: defaultSelected };
@@ -25,3 +26,12 @@ export const handleSelection = ({ current, selected }) => {
 
   return [...current, selected];
 };
+
+export const getAreaFromSelected = ({ data, selected }) =>
+  Math.floor(
+    data.reduce(
+      (accumulator, current) =>
+        (selected.includes(current.iso) ? current.area : 0) + accumulator,
+      0
+    )
+  );
