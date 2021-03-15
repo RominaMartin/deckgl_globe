@@ -5,7 +5,7 @@ const AreaWidget = ({ area }) => {
     <StyledAreaWrapper>
       <span>Area</span>
 
-      <StyledTotal>{area} km²</StyledTotal>
+      <StyledTotal>{new Intl.NumberFormat().format(area)} km²</StyledTotal>
     </StyledAreaWrapper>
   );
 };
